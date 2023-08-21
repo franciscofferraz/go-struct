@@ -7,6 +7,6 @@ import (
 
 func SetupRoutes(r *chi.Mux, h *handlers.Handlers) {
 	r.Route("/users", func(r chi.Router) {
-		r.Post("/create", h.UserHandler.CreateUserHandler)
+		r.Post("/create", h.UserHandler.CreateUser)
 	})
 }

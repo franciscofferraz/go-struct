@@ -32,8 +32,8 @@ func main() {
 	}
 	defer db.Close()
 
-	h, _ := cfg.InitializeHandlers(db)
-	srv := api.NewAPI(logger.Logger, cfg, h)
+	hr := cfg.InitializeHandlers(cfg.InitializeRepositories(db))
+	srv := api.NewAPI(logger.Logger, cfg, hr)
 
 	err = srv.Run()
 	if err != nil {

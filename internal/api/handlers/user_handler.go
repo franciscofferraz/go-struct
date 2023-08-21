@@ -11,16 +11,16 @@ import (
 )
 
 type UserHandler struct {
-	*Handlers
+	UserRepository *repositories.UserRepository
 }
 
-func NewUserHandler(userRepo *repositories.UserRepository) *UserHandler {
+func NewUserHandler(ur *repositories.UserRepository) *UserHandler {
 	return &UserHandler{
-		Handlers: NewHandler(userRepo),
+		UserRepository: ur,
 	}
 }
 
-func (uh *UserHandler) CreateUserHandler(w http.ResponseWriter, r *http.Request) {
+func (uh *UserHandler) CreateUser(w http.ResponseWriter, r *http.Request) {
 	var user models.User
 	if err := json.NewDecoder(r.Body).Decode(&user); err != nil {
 		errors.ErrorResponse(w, r, http.StatusBadRequest, "invalid request payload")

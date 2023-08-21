@@ -59,6 +59,10 @@ func (cfg *Config) ParseFlags() error {
 	return nil
 }
 
-func (c *Config) InitializeHandlers(db *sql.DB) (*handlers.Handlers, error) {
-	return handlers.NewHandler(repositories.NewUserRepository(db)), nil
+func (c *Config) InitializeHandlers(r *repositories.Repositories) *handlers.Handlers {
+	return handlers.NewHandlers(r.UserRepository)
+}
+
+func (c *Config) InitializeRepositories(db *sql.DB) *repositories.Repositories {
+	return repositories.NewRepositories(db)
 }
