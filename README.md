@@ -1,4 +1,4 @@
-# go-struct
+# go-nuts
 A well organized project structure for my go backends.
 
 ## Using this template
@@ -9,6 +9,6 @@ go install golang.org/x/tools/cmd/gonew@latest
 
 Copy the template the template with gonew and cd into it
 ```bash
-gonew github.com/franciscofferraz/go-struct example.com/myserver
+gonew github.com/franciscofferraz/go-nuts example.com/myserver
 cd ./myserver
 ```
