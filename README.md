@@ -7,7 +7,7 @@ Download gonew to easily reuse templates
 go install golang.org/x/tools/cmd/gonew@latest
 ```
 
-Copy the template the template with gonew and cd into it
+Copy the template with gonew and cd into it
 ```bash
 gonew github.com/franciscofferraz/go-nuts example.com/myserver
 cd ./myserver
